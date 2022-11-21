@@ -4,6 +4,9 @@
   ignore_errors: true
   gather_facts: false
   tasks:
+  - name: Include role
+    include_role:
+      name: net_nxos
   - name: Ping test
     ping:
     register: reach_result
