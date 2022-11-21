@@ -1,4 +1,5 @@
-- name: Ping test
+ --- 
+  - name: Ping test
     ping:
     register: reach_result
   
