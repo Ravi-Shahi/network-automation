@@ -1,26 +1,26 @@
- --- 
-  - name: Ping test
-    ping:
-    register: reach_result
-  
-  - name: Display ping result
-    debug:
-      msg: "{{reach_result}}"
+--- 
+- name: Ping test
+  ping:
+  register: reach_result
 
-  - name: Gather facts (NXOS)
-    cisco.nxos.nxos_facts:
-      gather_subset: config
-    register: nxos_facts
-    
-  - name: Display some facts (hostname)
-    debug:
-      msg: "hostname is {{ ansible_net_hostname }}" 
-  
-  - name: Command module 
-    nxos_command: 
-      commands: show interface  
-    register: command_output
+- name: Display ping result
+  debug:
+    msg: "{{reach_result}}"
 
-  - name: Display Interface
-    debug:
-      msg: "{{command_output}}"
+- name: Gather facts (NXOS)
+  cisco.nxos.nxos_facts:
+    gather_subset: config
+  register: nxos_facts
+  
+- name: Display some facts (hostname)
+  debug:
+    msg: "hostname is {{ ansible_net_hostname }}" 
+
+- name: Command module 
+  nxos_command: 
+    commands: show interface  
+  register: command_output
+
+- name: Display Interface
+  debug:
+    msg: "{{command_output}}"
