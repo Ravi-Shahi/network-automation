@@ -12,5 +12,10 @@ pipeline{
                 echo "cloned successfully"'''
             }
         }
+        stage('check-polling'){
+            steps{
+                sh 'echo "check continuous Integration"'
+            }
+        }
     }
 }
