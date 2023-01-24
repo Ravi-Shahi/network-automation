@@ -1,0 +1,4 @@
+---
+# vars file for net_nxos
+interface_name: "Ethernet1/60"
+threshold: 90

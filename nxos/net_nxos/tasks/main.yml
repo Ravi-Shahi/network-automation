@@ -24,3 +24,13 @@
 - name: Display Interface
   debug:
     msg: "{{command_output}}"
+
+- name: Get Interface 
+  nxos_command:
+    commands: show ip interface brief
+  register: interface_output
+
+- name: Diplay Interface ip
+  debug:
+    msg: "{{ interface_output }}"
+

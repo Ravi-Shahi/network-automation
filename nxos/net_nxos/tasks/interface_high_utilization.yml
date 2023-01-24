@@ -1,0 +1,16 @@
+- name: Check network utilization of interface on network device
+  nxos_command:
+    commands:
+      - show interface {{interface_name}}
+  register: interface_output
+- name: Display interface output
+  debug:
+    msg: "{{interface_output}}"
+# - name: Extract interface utilization
+#   set_fact:
+#     in_bits_per_sec: "{{ interface_output.stdout_lines[5].split()[5] }}"
+#     out_bits_per_sec: "{{ interface_output.stdout_lines[5].split()[7] }}"
+# - name: Check if utilization exceeds threshold
+#   fail:
+#     msg: "Interface {{ interface_name }} high utilization: in_bits_per_sec {{ in_bits_per_sec }}, out_bits_per_sec {{ out_bits_per_sec }}"
+#   when: (in_bits_per_sec|int > threshold) or (out_bits_per_sec|int > threshold)

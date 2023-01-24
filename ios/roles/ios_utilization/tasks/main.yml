@@ -1,0 +1,22 @@
+---
+- name: Show interface
+  ios_command:
+    commands:
+      - show interface {{interface_name}} | i txload|rxload
+  register: interface_output
+
+- name: Display interface output
+  debug:
+   msg: "{{interface_output}}"
+
+# - name: Extract interface status
+#   set_fact:
+#     interface_status: "{{ interface_output.stdout_lines[0][0].split()[2].strip(',') }}"
+
+# - name: Display status
+#   debug:
+#     msg: "{{interface_status}}"
+# - name: Check if interface is up
+#   fail:
+#     msg: "Interface {{ interface_name }} is down"
+#   when: interface_status != 'up'

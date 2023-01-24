@@ -1,0 +1,14 @@
+---
+- name: NXOS High Utilization
+  hosts: cisco_router
+  ignore_errors: true
+  gather_facts: false
+  tasks:
+  # - name: basic nx_os commands
+  #   include_role:
+  #     name: net_nxos
+  - name: interface high utilizaiton
+    include_role:
+      name: net_nxos
+      tasks_from: interface_high_utilization.yml
+  

@@ -1,0 +1,3 @@
+---
+# vars file for roles/ios_utilization
+interface_name: GigabitEthernet1
