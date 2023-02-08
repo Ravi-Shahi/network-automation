@@ -10,6 +10,16 @@
   - name: Display ping result
     debug:
       msg: "{{ping_result}}"
+  
+  - name: Get utilization
+      custom_module:
+        string: "reliability 255/255, txload 154/255, rxload 101/255"
+      register: result
+
+  - name: Display utilization
+    debug:
+      var: result
+
   - name: include role
     include_role:
       name: ios_utilization
