@@ -4,8 +4,16 @@
   ignore_errors: true
   gather_facts: false
   tasks:      
+  - name: Check connectivity
+    ping: 
+    register: ping_result
+  - name: Display ping result
+    debug:
+      msg: "{{ping_result}}"
+
   - name: interface high utilizaiton
     include_role:
       name: net_nxos
       tasks_from: interface_high_utilization.yml
+    when: ping_result.ping == 'pong'
   
