@@ -8,7 +8,7 @@ def extract_utilization(string):
     rxload = int(parts[2].split(" ")[-1].split("/")[0])
     return txload, rxload
 
-def calculate_utilization(txload, rxload):
+def calculate_utilization(txload, rxload):  
     tx_utilization =int(txload * 100 / 255)
     rx_utilization = int(rxload * 100 / 255)
     total_utilization = (tx_utilization + rx_utilization) / 2
